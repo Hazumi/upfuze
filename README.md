@@ -8,10 +8,33 @@
 {
     githubAccountId: string // not sure what github sign on needs
     email: string
+    activated: boolean // default 'false'
     password: string
-    phone: string   // format before instead
+    phone: string   // format before insert
     name: string    // must be at least characters long
     avatarImageUrl: string // must be url
+
+    // maybe in onboarding to 'setup profile', optional
+    availableTimeFrames: [
+        'mondays after 8:00pm',
+        'tuesdays after 4:00pm'
+    ],
+
+    // prompt as skippable onboarding to 'setup profile', optional
+    wantedKeywords: [
+        'Adobe XD',
+        'React',
+        'Graphql'
+    ],
+
+    createdAt: Date
+}
+```
+
+# Email Signup Confirmations
+```typescript
+{
+    userId: string
     createdAt: Date
 }
 ```
@@ -23,6 +46,7 @@
 {
     projectPostId: string
     ownerUserId: string
+    coverImageUrl?: string // must be url
     type: 'open-source' | 'commercial' // dropdown with two options
     name: string
     description: string // general description, goals
@@ -35,10 +59,6 @@
 # Project Goals
 - A project can have many goals
 
-======================
-[ ] 'name of goal' ( Due in 16 days )
-======================
-
 ```typescript
 {
     projectGoalId: string
@@ -50,15 +70,3 @@
 }
 ```
 
-# Project Position Posts
-
-- Name of needed position
-```typescript
-{
-    projectPostId: string
-    name: string
-    description: string
-    keywords: string[]  // for predictive text tag searching/adding
-    createdAt: Date
-}
-```
