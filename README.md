@@ -49,24 +49,24 @@
     coverImageUrl?: string // must be url
     type: 'open-source' | 'commercial' // dropdown with two options
     name: string
-    description: string // general description, goals
+    summary: string // general description, goals
     timeFrameNumberOfMonths: number // zero means no 'no time frame, unsure, to-be-dated'
+    notes: string // text area. project goals and information, general
 
     createdAt: Date
 }
 ```
 
-# Project Goals
-- A project can have many goals
+# Project Roles
 
 ```typescript
 {
-    projectGoalId: string
-    projectPostId: string // the project post this goal belongs to
+    projectRoleId: string
+    projectPostId: string       // the project that this role belongs to
+
     name: string
-    dueDate: Date
-    completedAt: Date
+    userIdThatFilledRole?: string
+
     createdAt: Date
 }
 ```
-
