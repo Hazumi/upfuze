@@ -6,27 +6,12 @@
 
 ```type
 {
-    githubAccountId: string // not sure what github sign on needs
     email: string
     activated: boolean // default 'false'
     password: string
-    phone: string   // format before insert
+    phone?: string   // format before insert 
     name: string    // must be at least characters long
     avatarImageUrl: string // must be url
-
-    // maybe in onboarding to 'setup profile', optional
-    availableTimeFrames: [
-        'mondays after 8:00pm',
-        'tuesdays after 4:00pm'
-    ],
-
-    // prompt as skippable onboarding to 'setup profile', optional
-    wantedKeywords: [
-        'Adobe XD',
-        'React',
-        'Graphql'
-    ],
-
     createdAt: Date
 }
 ```
