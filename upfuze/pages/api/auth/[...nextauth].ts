@@ -9,18 +9,9 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET || '',
       authorization: {
         params: {
-          redirect_uri: 'http://localhost:3000/signup',
+          redirect_uri: `${process.env.NEXTAUTH_URL}/api/auth/callback/github`,
         }
       }
     })
-  ],
-  callbacks: {
-    async signIn (params) {
-      return true
-    },
-    async jwt({ token }) {
-      token.userRole = "admin"
-      return token
-    },
-  }
+  ]
 })
