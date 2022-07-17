@@ -8,8 +8,7 @@ const SignUp: NextPage = () => {
 
   const signInWithGithub = (): void => {
     signIn("github", {
-      redirect: true,
-      redirect_uri: 'http://localhost:3000/signup'
+      callbackUrl: `${window.location.origin}/dashboard`
     })
   }
 
