@@ -1,7 +1,6 @@
 # upfuze
 
 - [How To Run](#run)
-- [How To Run](#run)
 - [API Documentation](#api-docs)
 
 <a id="run"></a>
@@ -11,6 +10,14 @@
 cp .env.example .env.local
 open .env.local
 ```
+
+## Github App Keys
+
+1. Go to your Github settings -> Developer Settings
+2. Go to GitHub Apps and 'New Github App'
+3. Set your Homepage URL to whatever you want, and make sure the callback URL is **`https://domain.com/api/auth/callback/github`**
+4. Create+Save, then "Generate a new client secret". This is the `GITHUB_SECRET`
+5. The `Client ID` at the top of the page is the `GITHUB_ID`
 
 First, run the development server:
 
