@@ -19,7 +19,7 @@ export const Header: React.FC<Props> = ({ }) => {
   return (
     <header>
       <Link href="/" passHref>
-        <div className="logo-container">
+        <div className="logo-container" title="Go Home">
           <Image src={UpfuzeLogo} alt="Upfuze" />
         </div>
       </Link>

@@ -25,6 +25,9 @@ header {
   background: #232C4B;
   margin-bottom: 100px;
 }
+header .logo-container img {
+  cursor: pointer;
+}
 header a {
   line-height: 100px;
   color: white;
