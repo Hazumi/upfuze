@@ -87,10 +87,6 @@ header .mobile-hamburger {
     bottom: 0;
     width: 200px;
 
-    box-shadow: -37px 1px 28px -12px rgba(0,0,0,0.32);
-    -webkit-box-shadow: -37px 1px 28px -12px rgba(0,0,0,0.32);
-    -moz-box-shadow: -37px 1px 28px -12px rgba(0,0,0,0.32);
-
     border-left: 1px solid #FFF;
 
     will-change: right;
@@ -111,6 +107,9 @@ header .mobile-hamburger {
   }
   header:focus-within nav {
     right: 0 !important;
+    box-shadow: -37px 1px 28px -12px rgba(0,0,0,0.32);
+    -webkit-box-shadow: -37px 1px 28px -12px rgba(0,0,0,0.32);
+    -moz-box-shadow: -37px 1px 28px -12px rgba(0,0,0,0.32);
   }
 }
 
