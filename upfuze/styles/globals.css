@@ -124,3 +124,15 @@ button.upfuze-btn {
   line-height: 26px;
   cursor: pointer;
 }
+button.upfuze-btn.fill {
+  background: url('/btn-fill.png');
+  color: #F8F8F8;
+}
+
+input, label, select, textarea {
+  display: block;
+}
+
+label {
+  margin: 16px 0;
+}
