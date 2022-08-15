@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { useSession } from "next-auth/react"
 import Image from 'next/image'
 import UpfuzeLogo from '../../assets/images/upfuze.png'
-import AvatarPlaceholder from '../../assets/images/avatar-placeholder.jpg'
 import { Button } from '../Button'
 
 type Props = {
@@ -41,7 +40,7 @@ export const Header: React.FC<Props> = ({ }) => {
         </Link>) }
 
         { loggedIn && (<span className="avatar-container">
-          <Image src={(session.data?.user?.image) || AvatarPlaceholder} alt="Your Avatar" width={52} height={52} />
+          <Image src={(session.data?.user?.image) || "/images/avatar-placeholder.jpg"} alt="Your Avatar" width={52} height={52} />
         </span>) }
 
         { !loggedIn && (<Link href="#">
