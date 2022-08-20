@@ -19,6 +19,42 @@ open .env.local
 4. Create+Save, then "Generate a new client secret". This is the `GITHUB_SECRET`
 5. The `Client ID` at the top of the page is the `GITHUB_ID`
 
+## Start Mongo
+
+Mongo is required to run upfuze. Easiest way is through docker
+
+
+1. Start running a mongo container:
+
+```
+docker run -d \
+   -v mongodata:/data/db \
+   -e MONGO_INITDB_DATABASE=UPFUZE \
+   -e MONGO_INITDB_ROOT_USERNAME=upfuze \
+   -e MONGO_INITDB_ROOT_PASSWORD=password123 \
+   -p 27017:27017 \
+   --name mongo mongo
+```
+
+- `-d` is let it run in the background
+- `-v` is to set the folder for the _volume_ of data
+- `-e` is to set the environmental variables.
+- `-p` is to open the mongo port 27017
+- `--name` is set the name of this container to `mongo`
+
+2. Set `MONGODB_URI` env var
+
+- Would look like this based off the `docker run` command above
+
+```
+MONGODB_URI="mongodb://upfuze:password123@localhost:27017/UPFUZE"
+
+# like this:
+# MONGODB_URI="mongodb://USERNAME:PASSWORD@localhost:27017/DATABASENAME"
+```
+
+## Serve the app
+
 First, run the development server:
 
 ```bash
