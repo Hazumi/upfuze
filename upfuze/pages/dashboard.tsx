@@ -52,7 +52,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   if (!session?.user?.id) {
     return {
-      redirect: '/signup'
+      redirect: {
+        permanent: false,
+        destination: '/signup'
+      }
     }
   }
 

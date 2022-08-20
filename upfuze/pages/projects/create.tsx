@@ -1,4 +1,6 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
+import { unstable_getServerSession } from "next-auth/next"
+import { authOptions } from '../api/auth/[...nextauth]'
 import { Button } from '../../components/Button'
 
 const CreateProject: NextPage = () => {
@@ -54,6 +56,23 @@ const CreateProject: NextPage = () => {
       </form>
     </div>
   )
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext): Promise<GetServerSidePropsResult<{}>> {
+  const session = await unstable_getServerSession(context.req, context.res, authOptions)
+
+  if (!session || !session?.user) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/signup'
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
 }
 
 export default CreateProject
