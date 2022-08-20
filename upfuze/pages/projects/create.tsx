@@ -6,7 +6,7 @@ const CreateProject: NextPage = () => {
     <div>
       <h1>Create Project</h1>
 
-      <form method="POST" action="/api/projects">
+      <form method="POST" action="/api/projects/create">
         <label htmlFor="name">
           Project name*
           <input required name="name" type="text" placeholder="Enter project name..." />
@@ -33,9 +33,7 @@ const CreateProject: NextPage = () => {
             <option value="6">6 Months</option>
             <option value="12">1 Year</option>
             <option value="24">2 Years</option>
-          </select>
-        </label>
-
+          </select> </label>
         <label htmlFor="type">
           Project Type*
           <select required name="type">
