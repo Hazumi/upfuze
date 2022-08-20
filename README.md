@@ -45,6 +45,7 @@ docker run -d \
 2. Set `MONGODB_URI` env var
 
 - Would look like this based off the `docker run` command above
+- **Do not use ROOT_USERNAME and ROOT_PASSWORD in production!!!**
 
 ```
 MONGODB_URI="mongodb://upfuze:password123@localhost:27017/UPFUZE"
