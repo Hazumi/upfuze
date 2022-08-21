@@ -2,6 +2,7 @@ import type { NextPage, GetStaticPropsResult } from 'next'
 import { ProjectType } from 'upfuze'
 import Project from '../models/project'
 import { OneProjectCard } from '../components/OneProjectCard'
+import { connectToDatabase } from '../lib/connectToDatabase'
 
 import styles from '../styles/Home.module.css'
 
@@ -28,6 +29,7 @@ const Home: NextPage<Props> = (props: Props) => {
 }
 
 export const getStaticProps = async (): Promise<GetStaticPropsResult<Props>> => {
+  await connectToDatabase()
   const latestProjects = await Project.find({}).sort({ createdAt: -1 }).limit(3).lean()
 
   return {
