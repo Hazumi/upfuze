@@ -43,7 +43,7 @@ export const Header: React.FC<Props> = ({ }) => {
           <Image src={(session.data?.user?.image) || "/images/avatar-placeholder.jpg"} alt="Your Avatar" width={52} height={52} />
         </span>) }
 
-        { !loggedIn && (<Link href="#">
+        { !loggedIn && (<Link href="/signup">
           log in
         </Link>) }
 
