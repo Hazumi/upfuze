@@ -1,6 +1,7 @@
 # upfuze
 
 - [Visit Upfuze Demo](https://upfuze.tyhacz.com)
+- [View User Interface Design](https://www.figma.com/file/riHJQyBma2PcWeOTwvKZOR/Upfuze?node-id=0%3A1)
 - [How To Run](#run)
 - [API Documentation](#api-docs)
 
