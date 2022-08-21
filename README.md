@@ -1,5 +1,6 @@
 # upfuze
 
+- [Visit Upfuze Demo](https://upfuze.tyhacz.com)
 - [How To Run](#run)
 - [API Documentation](#api-docs)
 
