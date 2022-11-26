@@ -1,0 +1,23 @@
+.container {
+  background: #232C4B;
+}
+.container > h1 {
+  color: #fff;
+  font-weight: 600;
+  font-family: 'Jost', sans-serif;
+}
+.container > h2 {
+  color: #fff;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cta {
+  background-color: transparent;
+  background-image: url('/btn-cta.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  border: 0;
+  padding: 8px 24px;
+  cursor: pointer;
+}

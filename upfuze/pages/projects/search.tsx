@@ -63,8 +63,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       ]
     }).lean()
 
-    console.log('search res:', projectResults.length)
-
     return {
       props: {
         searchResults: JSON.parse(JSON.stringify(projectResults)),
