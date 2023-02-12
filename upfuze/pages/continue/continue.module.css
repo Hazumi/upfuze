@@ -1,0 +1,22 @@
+.container {
+  height: 90vh;
+  margin-top: -100px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.container form {
+  flex-basis: 60%;
+  text-align: center;
+}
+
+.graphicContainer {
+  flex-basis: 40%;
+  padding-left: 5%;
+  background-image: url('/images/side-wave.png');
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
