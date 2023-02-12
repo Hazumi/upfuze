@@ -1,15 +1,18 @@
-import { ProjectType } from 'upfuze'
+import { ProjectType, RoleType } from 'upfuze'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { NextPage, GetStaticPropsContext } from 'next'
 import { connectToDatabase } from '../../lib/connectToDatabase'
 import Project from '../../models/project'
+import Role from '../../models/role'
+import { ProjectRoles } from '../../components/ProjectRoles'
 
 type Props = {
   project: ProjectType
+  roles: RoleType[]
 }
 
-const ViewOneProjectPage: NextPage<Props> = ({ project }) => {
+const ViewOneProjectPage: NextPage<Props> = ({ project, roles }) => {
     if (!project) {
       return null
     }
@@ -18,7 +21,7 @@ const ViewOneProjectPage: NextPage<Props> = ({ project }) => {
       <div className="project-page">
         <div className="cover-image-container">
           <Image
-            src={project.coverImage || "/images/project-placeholder.jpg"}
+            src={project.coverImage ? `/${project.coverImage}` : "/images/project-placeholder.jpg"}
             alt={`${project.name} Cover Image`}
             objectFit="fill"
             width={300}
@@ -36,6 +39,7 @@ const ViewOneProjectPage: NextPage<Props> = ({ project }) => {
         <p>
           { project.details }
         </p>
+        <ProjectRoles roles={roles}  project={project} />
       </div>
     )
 }
@@ -45,12 +49,19 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   if (context.params) {
     const { id: projectId } = context.params
-    console.log({ projectId })
-    const project = await Project.findOne({ _id: projectId })
+    const project = await Project.findOne({ _id: projectId }).lean()
+    const roles = await Role.find({ projectId }).populate('filledUserRole').lean()
+
+    if (roles) {
+      for (let i = 0; i < roles.length; i++) {
+        delete roles[i]?.filledUserRole?.email
+      }
+    }
 
     return {
       props: {
-        project: JSON.parse(JSON.stringify(project))
+        project: JSON.parse(JSON.stringify(project)),
+        roles: JSON.parse(JSON.stringify(roles))
       }
     }
   }

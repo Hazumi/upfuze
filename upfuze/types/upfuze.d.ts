@@ -9,4 +9,19 @@ declare module "upfuze" {
     coverImage?: string
     owner: string
   }
+
+  interface RoleType {
+    _id: string
+    name: string
+    description: string
+    projectId: string
+    filledUserRole?: ProfileType
+    createdAt: Date
+  }
+
+  interface ProfileType {
+    userId: string
+    name: string
+    avatar?: string | undefined
+  }
 }
