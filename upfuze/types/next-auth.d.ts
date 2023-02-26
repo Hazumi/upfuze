@@ -1,4 +1,5 @@
 import NextAuth from "next-auth"
+import { ProfileType } from "upfuze"
 
 declare module "next-auth" {
   interface User extends NextAuth.User {
@@ -7,5 +8,6 @@ declare module "next-auth" {
   }
   interface Session extends NextAuth.Session {
     user: User
+    profile: ProfileType
   }
 }

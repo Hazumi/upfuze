@@ -27,11 +27,6 @@ const ProjectSchema = new mongoose.Schema({
   coverImage: {
     type: String,
     required: false
-  },
-  owner: {
-    type: mongoose.Types.ObjectId,
-    ref: 'users',
-    required: true
   }
 }, {
   timestamps: true

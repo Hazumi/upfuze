@@ -13,7 +13,7 @@ export const OneProjectCard: React.FC<Props> = ({ project }) => {
       <div className="project-card">
         <div className="cover-image-container">
           <Image
-            src={project.coverImage || "/images/project-placeholder.jpg"}
+            src={project.coverImage ? `/${project.coverImage}` : "/images/project-placeholder.jpg"}
             alt={`${project.name} Cover Image`}
             layout="fill"
           />

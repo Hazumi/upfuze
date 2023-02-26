@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "../auth/[...nextauth]"
 import Project from '../../../models/project'
+import Role from '../../../models/role'
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,6 +17,13 @@ export default async function handler(
   if (req.method === 'POST') {
     const createdProject = await Project.create({
       ...req.body,
+      owner: session.user.id
+    })
+
+    await Role.create({
+      projectId: createdProject._id,
+      name: 'Project Owner',
+      description: 'This is the owner of the project.',
       owner: session.user.id
     })
 
