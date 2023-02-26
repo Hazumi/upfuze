@@ -1,7 +1,14 @@
-import NextAuth from "next-auth"
+import NextAuth, { NextAuthOptions, User } from "next-auth"
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import GithubProvider from "next-auth/providers/github"
+import { connectToDatabase } from '../../../lib/connectToDatabase'
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
+  adapter: MongoDBAdapter((async () => {
+      const connection = await connectToDatabase()
+      return connection.connection.getClient()
+  })()),
+
   // Configure one or more authentication providers
   providers: [
     GithubProvider({
@@ -13,5 +20,21 @@ export default NextAuth({
         }
       }
     })
-  ]
-})
+  ],
+
+  callbacks: {
+    session: ({ session, user, token }) => {
+      // console.log('in session callback', {
+      //   session,
+      //   user,
+      //   token
+      // })
+
+      session.user = user
+
+      return session
+    }
+  }
+}
+
+export default NextAuth(authOptions)

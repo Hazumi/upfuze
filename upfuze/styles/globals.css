@@ -124,3 +124,63 @@ button.upfuze-btn {
   line-height: 26px;
   cursor: pointer;
 }
+button.upfuze-btn.fill {
+  background: url('/btn-fill.png');
+  color: #F8F8F8;
+}
+
+input, label, select, textarea {
+  display: block;
+}
+
+label {
+  margin: 16px 0;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 300px;
+  min-height: 400px;
+  border: 1px solid black;
+  position: relative;
+  padding: 0 16px 16px 16px;
+  margin: 32px 0 32px 32px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.project-card .cover-image-container {
+  margin: 0;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background: #000;
+}
+.project-card .cover-image-container img {
+  opacity: 0.5;
+}
+.project-card h3,
+.project-card h4 {
+  color: #fff;
+}
+.project-card p {
+  font-size: 12px;
+}
+
+.project-page .cover-image-container {
+  height: 200px;
+  width: 100%;
+}
+
+.project-page .cover-image-container img {
+  max-width: 100%;
+}
