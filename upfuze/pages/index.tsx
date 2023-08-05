@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticPropsResult } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ProjectType } from 'upfuze'
 import Project from '../models/project'
 import { OneProjectCard } from '../components/OneProjectCard'
@@ -40,21 +41,25 @@ const Home: NextPage<Props> = (props: Props) => {
         <meta property="og:type" content="website"/>
       </Head>
       <div className={styles.container}>
-          <h1>
-            Upfuze is a project collaboration based tech hub.
-          </h1>
-          <h2>
-            Bring ideas to life with other designers, 
-            developers, and tech enthusiasts by &nbsp;
-            <span className="bold">connecting</span>,&nbsp; 
-            <span className="bold">collaborating</span>,&nbsp;
-            and <span className="bold">growing together</span>.
-          </h2>
-          <Link href="/signup" passHref>
-            <a title="Get Started">
-              <button type="button" className={styles.cta}>Get Started</button>
-            </a>
-          </Link>
+          <div className={styles.hero}>
+            <h1>
+              Upfuze is a <span>project collaboration</span> based tech hub.
+            </h1>
+            <h2>
+              Bring ideas to life with other designers, 
+              developers, and tech enthusiasts by &nbsp;
+              <span className="bold">connecting</span>,&nbsp; 
+              <span className="bold">collaborating</span>,&nbsp;
+              and <span className="bold">growing together</span>.
+            </h2>
+            <Link href="/signup" passHref>
+              <a title="Get Started">
+                <button type="button" className={styles.cta}>Get Started</button>
+              </a>
+            </Link>
+
+            <Image className={styles.abstractOne} src="/abstract/04.png" alt="Upfuze Art" width={1241} height={583} />
+          </div>
           <HomeSearchSection />
           <HomeSolutionsSection />
           <h2>Newest Projects</h2>
